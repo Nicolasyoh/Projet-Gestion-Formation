@@ -3,6 +3,8 @@ package com.fr.adaming.entities;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @DiscriminatorValue("2")
 @Entity
@@ -14,7 +16,14 @@ public class Apprenant extends Personne {
 	private String cv;
 	@Column(name = "Cycle_formation", length = 50)
 	private String cycleFormation;
-
+	@ManyToOne
+	@JoinColumn(name="id_Formation")
+	private CycleFormation cycle_Formation;
+	
+	@ManyToOne
+	@JoinColumn(name="id_Consultant")
+	private Consultant consultant;
+	
 	public Apprenant(String diplome, String cv, String cycleFormation) {
 		super();
 		this.diplome = diplome;

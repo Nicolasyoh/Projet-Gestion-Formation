@@ -1,8 +1,14 @@
 package com.fr.adaming.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 
 @Entity
 @DiscriminatorValue("1")
@@ -12,6 +18,9 @@ public class Consultant extends Personne {
 	private String specialite;
 	@Column(name = "Nombre_formation_disponible")
 	private int nbrFormationDispo;
+	@OneToMany(cascade=CascadeType.ALL, mappedBy = "CycleFormation", fetch=FetchType.LAZY)
+	List <Consultant> consultant = new ArrayList<Consultant>();
+	
 	public Consultant(String dateNaissance, String nom, String prenom, String specialite, int nbrFormationDispo) {
 		super(dateNaissance, nom, prenom);
 		this.specialite = specialite;

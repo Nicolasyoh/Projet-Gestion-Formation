@@ -1,8 +1,14 @@
 package com.fr.adaming.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class CycleFormation {
@@ -19,6 +25,9 @@ public class CycleFormation {
 	private int cout;
 	@Column(name = "Liste_apprenants")
 	private String listeApprenants;
+	
+	@OneToMany(cascade=CascadeType.ALL, mappedBy = "CycleFormation", fetch=FetchType.LAZY)
+	List <CycleFormation> cycle_Formation = new ArrayList<CycleFormation>();
 
 	public CycleFormation(String titre, String description, String dateDebut, String dateFin, int cout,
 			String listeApprenants) {
