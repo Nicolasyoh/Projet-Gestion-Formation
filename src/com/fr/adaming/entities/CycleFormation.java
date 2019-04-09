@@ -26,8 +26,6 @@ public class CycleFormation {
 	@Column(name = "Liste_apprenants")
 	private String listeApprenants;
 	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy = "CycleFormation", fetch=FetchType.LAZY)
-	List <CycleFormation> cycle_Formation = new ArrayList<CycleFormation>();
 
 	public CycleFormation(String titre, String description, String dateDebut, String dateFin, int cout,
 			String listeApprenants) {

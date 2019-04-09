@@ -18,8 +18,7 @@ public class Consultant extends Personne {
 	private String specialite;
 	@Column(name = "Nombre_formation_disponible")
 	private int nbrFormationDispo;
-	@OneToMany(cascade=CascadeType.ALL, mappedBy = "CycleFormation", fetch=FetchType.LAZY)
-	List <Consultant> consultant = new ArrayList<Consultant>();
+
 	
 	public Consultant(String dateNaissance, String nom, String prenom, String specialite, int nbrFormationDispo) {
 		super(dateNaissance, nom, prenom);

@@ -16,13 +16,7 @@ public class Apprenant extends Personne {
 	private String cv;
 	@Column(name = "Cycle_formation", length = 50)
 	private String cycleFormation;
-	@ManyToOne
-	@JoinColumn(name="id_Formation")
-	private CycleFormation cycle_Formation;
-	
-	@ManyToOne
-	@JoinColumn(name="id_Consultant")
-	private Consultant consultant;
+
 	
 	public Apprenant(String diplome, String cv, String cycleFormation) {
 		super();
